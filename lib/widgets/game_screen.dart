@@ -11,6 +11,8 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreen extends State<GameScreen> {
+  //seconds
+  int _remainingTime = 30;
   double _hinOpacity = 0;
   void _toggleHint(){
     setState(() {
@@ -94,5 +96,12 @@ class _GameScreen extends State<GameScreen> {
         backgroundColor: Theme.of(context).accentColor,
       ),
     );
+  }
+
+  void timer(int howLongSeconds){
+    DateTime totalTime = DateTime.now().add(Duration(seconds: howLongSeconds));
+    Duration remainingTime = totalTime.difference(DateTime.now());
+    // TODO refresh every time :)
+
   }
 }
